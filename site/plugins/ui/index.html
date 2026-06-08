@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://nothingfr87.github.io/NONEVIM/plugins/ui/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>UI / Appearance Plugins - NONEVIM Plugins</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "UI / Appearance Plugins";
+        var mkdocs_page_input_path = "plugins/ui.md";
+        var mkdocs_page_url = "/NONEVIM/plugins/ui/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> NONEVIM Plugins
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">NONEVIM Plugins</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Plugins</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../func/">Functionality / Productivity Plugins</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lsp/">LSP &amp; Development Plugins</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">UI / Appearance Plugins</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#catppuccinnvim">catppuccin/nvim</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#purpose">Purpose</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features">Features</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#askfiyvisual_studio_code">askfiy/visual_studio_code</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#purpose_1">Purpose</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#nvim-miniminiindentscope">nvim-mini/mini.indentscope</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#purpose_2">Purpose</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features_1">Features</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#djancypbetter-commentsnvim">Djancyp/better-comments.nvim</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#purpose_3">Purpose</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#meanderingprogrammerrender-markdownnvim">MeanderingProgrammer/render-markdown.nvim</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#purpose_4">Purpose</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#nvim-treenvim-web-devicons">nvim-tree/nvim-web-devicons</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#purpose_5">Purpose</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#nvim-lualinelualinenvim">nvim-lualine/lualine.nvim</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#purpose_6">Purpose</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features_2">Features</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#norcallinvim-colorizerlua">norcalli/nvim-colorizer.lua</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#purpose_7">Purpose</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#nvim-neo-treeneo-treenvim">nvim-neo-tree/neo-tree.nvim</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#purpose_8">Purpose</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dependencies">Dependencies</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features_3">Features</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#akinshobufferlinenvim">akinsho/bufferline.nvim</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#purpose_9">Purpose</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features_4">Features</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">NONEVIM Plugins</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Plugins</li>
+      <li class="breadcrumb-item active">UI / Appearance Plugins</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/nothingfr87/NONEVIM/edit/master/docs/plugins/ui.md">Edit on NONEVIM</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ui-appearance-plugins">UI / Appearance Plugins</h1>
+<p>Plugins that enhance Neovim's visual experience and interface usability.</p>
+<hr />
+<h2 id="catppuccinnvim">catppuccin/nvim</h2>
+<p>Color scheme plugin.</p>
+<h3 id="purpose">Purpose</h3>
+<p>Provides a modern pastel-themed color palette.</p>
+<h3 id="features">Features</h3>
+<ul>
+<li>Multiple flavor variants</li>
+<li>Highly customizable UI highlights</li>
+<li>Supports Lualine, Treesitter, Telescope</li>
+</ul>
+<hr />
+<h2 id="askfiyvisual_studio_code">askfiy/visual_studio_code</h2>
+<p>VSCode-inspired theme.</p>
+<h3 id="purpose_1">Purpose</h3>
+<p>Emulates Visual Studio Code appearance.</p>
+<hr />
+<h2 id="nvim-miniminiindentscope">nvim-mini/mini.indentscope</h2>
+<p>Indentation visualization.</p>
+<h3 id="purpose_2">Purpose</h3>
+<p>Highlights indentation scope for better code structure readability.</p>
+<h3 id="features_1">Features</h3>
+<ul>
+<li>Animated indent guides</li>
+<li>Minimal overhead</li>
+</ul>
+<hr />
+<h2 id="djancypbetter-commentsnvim">Djancyp/better-comments.nvim</h2>
+<p>Enhanced comment highlighting.</p>
+<h3 id="purpose_3">Purpose</h3>
+<p>Improves readability of TODO, FIXME, and NOTE comments.</p>
+<hr />
+<h2 id="meanderingprogrammerrender-markdownnvim">MeanderingProgrammer/render-markdown.nvim</h2>
+<p>Markdown rendering inside Neovim.</p>
+<h3 id="purpose_4">Purpose</h3>
+<p>Improves markdown readability with inline rendering.</p>
+<hr />
+<h2 id="nvim-treenvim-web-devicons">nvim-tree/nvim-web-devicons</h2>
+<p>File icons for Neovim UI plugins.</p>
+<h3 id="purpose_5">Purpose</h3>
+<p>Adds file-type icons across UI components.</p>
+<hr />
+<h2 id="nvim-lualinelualinenvim">nvim-lualine/lualine.nvim</h2>
+<p>Statusline plugin.</p>
+<h3 id="purpose_6">Purpose</h3>
+<p>Customizable and fast statusline replacement.</p>
+<h3 id="features_2">Features</h3>
+<ul>
+<li>Theme support</li>
+<li>Git integration</li>
+<li>Diagnostics display</li>
+</ul>
+<hr />
+<h2 id="norcallinvim-colorizerlua">norcalli/nvim-colorizer.lua</h2>
+<p>Color preview plugin.</p>
+<h3 id="purpose_7">Purpose</h3>
+<p>Displays actual colors for hex/RGB values in code.</p>
+<hr />
+<h2 id="nvim-neo-treeneo-treenvim">nvim-neo-tree/neo-tree.nvim</h2>
+<p>File explorer UI.</p>
+<h3 id="purpose_8">Purpose</h3>
+<p>Modern tree-based file manager.</p>
+<h3 id="dependencies">Dependencies</h3>
+<ul>
+<li>plenary.nvim</li>
+<li>nui.nvim</li>
+<li>nvim-web-devicons</li>
+</ul>
+<h3 id="features_3">Features</h3>
+<ul>
+<li>Git integration</li>
+<li>Floating and docked modes</li>
+<li>Fast navigation</li>
+</ul>
+<hr />
+<h2 id="akinshobufferlinenvim">akinsho/bufferline.nvim</h2>
+<p>Buffer tab UI.</p>
+<h3 id="purpose_9">Purpose</h3>
+<p>Shows open buffers in a tab-like interface.</p>
+<h3 id="features_4">Features</h3>
+<ul>
+<li>Buffer grouping</li>
+<li>Icons support</li>
+<li>Integration with devicons</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../lsp/" class="btn btn-neutral float-left" title="LSP &amp; Development Plugins"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/nothingfr87/NONEVIM" class="fa fa-code-fork" style="color: #fcfcfc"> NONEVIM</a>
+        </span>
+    
+    
+      <span><a href="../lsp/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
