@@ -21,5 +21,5 @@ local function transparent()
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 end
 
-vim.cmd("colorscheme catppuccin")
+vim.cmd("colorscheme catppuccin-mocha")
 -- transparent()
