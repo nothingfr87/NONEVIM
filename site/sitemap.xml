@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://nothingfr87.github.io/NONEVIM/</loc>
+         <loc>https://nothingfr87.github.io/NONEVIM/site/</loc>
          <lastmod>2026-06-08</lastmod>
     </url>
     <url>
-         <loc>https://nothingfr87.github.io/NONEVIM/plugins/func/</loc>
+         <loc>https://nothingfr87.github.io/NONEVIM/site/plugins/func/</loc>
          <lastmod>2026-06-08</lastmod>
     </url>
     <url>
-         <loc>https://nothingfr87.github.io/NONEVIM/plugins/lsp/</loc>
+         <loc>https://nothingfr87.github.io/NONEVIM/site/plugins/lsp/</loc>
          <lastmod>2026-06-08</lastmod>
     </url>
     <url>
-         <loc>https://nothingfr87.github.io/NONEVIM/plugins/ui/</loc>
+         <loc>https://nothingfr87.github.io/NONEVIM/site/plugins/ui/</loc>
          <lastmod>2026-06-08</lastmod>
     </url>
 </urlset>
