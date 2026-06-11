@@ -20,15 +20,14 @@ vim.lsp.enable(servers)
 
 -- CMP
 local cmp = require("cmp")
-local lspkind = require("lspkind")
-vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#181825" })
+-- vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#181825" })
 
 cmp.setup({
 	completion = {
 		autocomplete = false,
 	},
 	formatting = {
-		fields = { "kind", "abbr" },
+		fields = { "kind", "abbr", "menu" },
 		format = function(_, item)
 			local icons = {
 				Text = "󰉿",
@@ -49,6 +48,7 @@ cmp.setup({
 			max_height = 8,
 			winhighlight = "Normal:CmpNormal,FloatBorder:FloatBorder",
 		}),
+		documentation = cmp.config.window.bordered(),
 	},
 	mapping = cmp.mapping.preset.insert({
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
