@@ -24,6 +24,9 @@ local lspkind = require("lspkind")
 vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#181825" })
 
 cmp.setup({
+	completion = {
+		autocomplete = false,
+	},
 	formatting = {
 		fields = { "kind", "abbr" },
 		format = function(_, item)
@@ -52,7 +55,7 @@ cmp.setup({
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.abort(),
-		["<CR>"] = cmp.mapping.confirm(),
+		["<CR>"] = cmp.mapping.confirm({ select = false }),
 	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
