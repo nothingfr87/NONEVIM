@@ -20,8 +20,8 @@ NONEVIM is my personal neovim configuration
 
 ## Screenshot:
 
-![Screenshot](./screenshot1.png)
-![Screenshot](./screenshot2.png)
+![Screenshot](screenshot1.png)
+![Screenshot](screenshot2.png)
 
 ---
 
