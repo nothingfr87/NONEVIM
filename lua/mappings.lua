@@ -23,6 +23,11 @@ set("n", "<Tab>", ":BufferLineCycleNext<CR>", { desc = "Cycle Through Tabs" })
 set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { desc = "Cycle Through Previuos Tabs" })
 set("n", "<leader>w", ":BufferLinePickClose<CR>", { desc = "Pick a Tab to close" })
 set("n", "<leader>p", ":BufferLinePick<CR>", { desc = "Pick a Tab to open" })
+-- Git signs
+set("n", "<leader>gw", ":Gitsigns toggle_linehl<CR>", { desc = "Toggle Git Line Diff" })
+set("n", "<leader>gd", ":Gitsigns toggle_deleted<CR>", { desc = "Toggle Git Line Deleted" })
+set("n", "<leader>gd", ":Gitsigns toggle_deleted<CR>", { desc = "Toggle Git Line Deleted" })
+set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle Git Line Blame" })
 
 -- Global Mappings
 set("n", "<leader>ts", ":split<CR>", { desc = "Split Neovim Window Horizantly" })

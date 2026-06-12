@@ -17,11 +17,8 @@ for _, lsp in ipairs(servers) do
 	})
 end
 vim.lsp.enable(servers)
-
 -- CMP
 local cmp = require("cmp")
--- vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#181825" })
-
 cmp.setup({
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
