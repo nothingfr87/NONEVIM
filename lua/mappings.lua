@@ -1,6 +1,6 @@
 local set = vim.keymap.set
 
--- NeoTree Mappings
+-- NeoTree
 set("n", "<C-b>", ":Neotree toggle<CR>", { desc = "Toggle Neotree" })
 set("n", "<leader>e", ":Neotree focus<CR>", { desc = "Focus Neotree" })
 
@@ -13,6 +13,10 @@ set("n", "<C-t>", ":ToggleTerm<CR>", { desc = "Toggle Term" })
 
 -- Code Runner
 set("n", "<C-r>", ":RunCode<CR>", { desc = "Code Runner" })
+
+-- UFO
+set("n", "zR", require("ufo").openAllFolds)
+set("n", "zM", require("ufo").closeAllFolds)
 
 -- Bufferline
 set("n", "<Tab>", ":BufferLineCycleNext<CR>", { desc = "Cycle Through Tabs" })

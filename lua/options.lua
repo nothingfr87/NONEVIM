@@ -21,6 +21,11 @@ o.showmode = false
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 o.clipboard = "unnamedplus"
+o.fillchars = "eob: ,fold: ,foldopen:,foldsep: ,foldinner: ,foldclose:"
+o.foldcolumn = "1"
+o.foldlevel = 99
+o.foldlevelstart = 99
+o.foldenable = true
 
 cmd("cnoreabbrev q q!")
 cmd("cnoreabbrev qa qall!")

@@ -23,9 +23,6 @@ local cmp = require("cmp")
 -- vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#181825" })
 
 cmp.setup({
-	completion = {
-		autocomplete = false,
-	},
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
 		format = function(_, item)
