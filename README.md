@@ -41,3 +41,9 @@ mv /path/to/repositer/ ~/.config/
 cd ~/.config/nvim
 rm -rf .git/ README.md screenshot*
 ```
+
+--- 
+
+## Documentation:
+
+[![Go to Docs](https://img.shields.io/badge/Go%20To-Documentation-cba6f7?style=for-the-badge&logo=google-docs&logoColor=ffffff&labelColor=1e1e2e)](https://nothingfr87.github.io/NONEVIM/)
