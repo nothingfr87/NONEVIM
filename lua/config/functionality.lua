@@ -76,3 +76,9 @@ require("code_runner").setup({
 		lua = "lua $fileName",
 	},
 })
+
+-- Render Markdown
+require("render-markdown").setup({
+	latex = { enabled = false },
+	yaml = { enabled = false },
+})

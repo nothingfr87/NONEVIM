@@ -17,7 +17,13 @@ for _, lsp in ipairs(servers) do
 	})
 end
 vim.lsp.enable(servers)
+
 -- CMP
+
+vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#1e1e2e" })
+vim.api.nvim_set_hl(0, "CmpBorder", { fg = "#cba6f7", bg = "#1e1e2e" })
+vim.api.nvim_set_hl(0, "CmpSel", { bg = "#313244", bold = true })
+
 local cmp = require("cmp")
 cmp.setup({
 	formatting = {
@@ -40,16 +46,20 @@ cmp.setup({
 		completion = cmp.config.window.bordered({
 			max_width = 20,
 			max_height = 8,
-			winhighlight = "Normal:CmpNormal,FloatBorder:FloatBorder",
+			winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:CmpSel,Search:None",
+			border = "rounded",
 		}),
-		documentation = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered({
+			winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:CmpSel,Search:None",
+			border = "rounded",
+		}),
 	},
 	mapping = cmp.mapping.preset.insert({
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.abort(),
-		["<CR>"] = cmp.mapping.confirm({ select = false }),
+		["<CR>"] = cmp.mapping.confirm({}),
 	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },

@@ -1,11 +1,14 @@
--- Options
-require("options")
-
 -- Plugin manager
 require("config.lazy")
 
+-- Options
+require("options")
+
 -- Mappings
 require("mappings")
+
+-- API Edits
+require("apiedits")
 
 -- LSP
 require("config.lsp")
@@ -22,4 +25,4 @@ local function transparent()
 end
 
 vim.cmd("colorscheme catppuccin-mocha")
--- transparent()
+transparent()

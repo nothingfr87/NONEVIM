@@ -12,18 +12,12 @@ return {
 			require("better-comment").Setup()
 		end,
 	},
-	{
-		"MeanderingProgrammer/render-markdown.nvim",
-		---@module 'render-markdown'
-		---@type render.md.UserConfig
-		opts = {},
-	},
 	{ "nvim-tree/nvim-web-devicons" },
 	{
 		"nvim-lualine/lualine.nvim",
 	},
 	{
-    "brenoprata10/nvim-highlight-colors",
+		"brenoprata10/nvim-highlight-colors",
 		config = function()
 			require("nvim-highlight-colors").setup()
 		end,

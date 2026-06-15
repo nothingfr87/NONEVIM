@@ -1,12 +1,12 @@
 local set = vim.keymap.set
 
 -- NeoTree
-set("n", "<C-b>", ":Neotree toggle<CR>", { desc = "Toggle Neotree" })
+set("n", "<leader>b", ":Neotree toggle<CR>", { desc = "Toggle Neotree" })
 set("n", "<leader>e", ":Neotree focus<CR>", { desc = "Focus Neotree" })
 
 -- Telescope
-set("n", "<C-f>", ":Telescope find_files<CR>", { desc = "Open telescope" })
-set("n", "<C-g>", ":Telescope live_grep<CR>", { desc = "Search Words in Telescope" })
+set("n", "<leader>f", ":Telescope find_files<CR>", { desc = "Open telescope" })
+set("n", "<leader><S-g>", ":Telescope live_grep<CR>", { desc = "Search Words in Telescope" })
 
 -- Toggle Term
 set("n", "<C-t>", ":ToggleTerm<CR>", { desc = "Toggle Term" })
@@ -47,13 +47,13 @@ set("n", "<C-q>", ":q!<CR>", { desc = "Close Window" })
 -- Toggle Inlay Hints
 set(
 	"n",
-	"<leader>h",
+	"<leader><S-h>",
 	":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })<CR>",
 	{ desc = "Enable Inlay Hints" }
 )
 
 -- Format Document
-set("n", "<leader>f", ":lua vim.lsp.buf.format()<CR>", { desc = "Format Current Document" })
+set("n", "<leader><S-f>", ":lua vim.lsp.buf.format()<CR>", { desc = "Format Current Document" })
 
 -- Navigation
 set("n", "<leader>h", "<C-w>h", { desc = "Go to left window" })

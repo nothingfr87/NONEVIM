@@ -100,15 +100,6 @@ neotree.setup({
 })
 
 -- IndentScope
-vim.api.nvim_create_autocmd("ColorScheme", {
-	callback = function()
-		vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", {
-			fg = vim.fn.synIDattr(vim.fn.hlID("Function"), "fg"),
-			bold = true,
-		})
-	end,
-})
-
 require("mini.indentscope").setup({
 	draw = {
 		delay = 100,
