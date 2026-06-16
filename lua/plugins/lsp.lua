@@ -10,6 +10,7 @@ return {
 		branch = "master",
 		build = ":TSUpdate",
 	},
+
 	-- CMP
 	{
 		"hrsh7th/nvim-cmp",

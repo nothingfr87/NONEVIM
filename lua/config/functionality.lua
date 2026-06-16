@@ -49,12 +49,6 @@ require("gitsigns").setup({
 	},
 })
 
--- Treesitter
-local ts = require("nvim-treesitter.configs")
-ts.setup({
-	ensure_installed = { "c", "cpp", "python", "lua", "html", "css", "javascript", "vim", "vimdoc", "nix", "markdown" },
-})
-
 -- Which Key
 local whichkey = require("which-key")
 
@@ -75,10 +69,4 @@ require("code_runner").setup({
 		python = "python3 -u",
 		lua = "lua $fileName",
 	},
-})
-
--- Render Markdown
-require("render-markdown").setup({
-	latex = { enabled = false },
-	yaml = { enabled = false },
 })
