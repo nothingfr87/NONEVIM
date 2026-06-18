@@ -16,24 +16,33 @@ for _, lsp in ipairs(servers) do
 		capabilities = capabilities,
 	})
 end
+
+vim.lsp.config("lua_ls", {
+	Lua = {
+		runtime = {
+			version = "LuaJIT",
+		},
+		diagnostics = {
+			globals = {
+				"vim",
+				"require",
+			},
+		},
+		workspace = {
+			library = vim.api.nvim_get_runtime_file("", true),
+		},
+		telemetry = {
+			enable = false,
+		},
+	},
+})
+
 vim.lsp.enable(servers)
 
 -- -- Treesitter
 local ts = require("nvim-treesitter.configs")
 ts.setup({
-	ensure_installed = {
-		"c",
-		"cpp",
-		"python",
-		"lua",
-		"html",
-		"css",
-		"javascript",
-		"vim",
-		"vimdoc",
-		"nix",
-		"markdown",
-	},
+	ensure_installed = { "python", "c", "cpp", "html", "css", "javascript", "markdown", "vim", "vimdoc" },
 })
 
 -- CMP
