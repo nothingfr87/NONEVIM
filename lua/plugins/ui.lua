@@ -14,8 +14,10 @@ return {
 		event = "VeryLazy",
 		opts = {
 			cursor_color = "#cba6f7",
-			legacy_computing_symbols_support = true,
-			distance_stop_animating_vertical_bar = 0,
+			stiffness = 0.2,
+			damping = 0.6,
+			stiffness_insert_mode = 0.3,
+			damping_insert_mode = 0.2,
 		},
 	},
 
