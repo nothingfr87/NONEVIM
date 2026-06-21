@@ -8,6 +8,17 @@ return {
 		opts = {},
 	},
 
+	-- Smear Cursor Animations
+	{
+		"sphamba/smear-cursor.nvim",
+		event = "VeryLazy",
+		opts = {
+			cursor_color = "#cba6f7",
+			legacy_computing_symbols_support = true,
+			distance_stop_animating_vertical_bar = 0,
+		},
+	},
+
 	-- Indentation Line Guides
 	{
 		"nvim-mini/mini.indentscope",

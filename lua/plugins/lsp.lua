@@ -18,8 +18,6 @@ return {
 			vim.lsp.config("pyright", { capabilities = capabilities })
 			-- C/C++
 			vim.lsp.config("clangd", { capabilities = capabilities })
-			-- Markdown
-			vim.lsp.config("marksman", { capabilities = capabilities })
 			-- Lua
 			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
@@ -41,7 +39,6 @@ return {
 				"lua_ls",
 				"pyright",
 				"clangd",
-				"marksman",
 				"emmet_ls",
 			})
 		end,
