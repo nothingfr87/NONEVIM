@@ -7,6 +7,19 @@ return {
 		opts = {},
 	},
 
+	-- Auto Close Tag
+	{
+		"windwp/nvim-ts-autotag",
+		event = "VeryLazy",
+		opts = {
+			per_filetype = {
+				["html"] = {
+					enable_close = false,
+				},
+			},
+		},
+	},
+
 	-- Telescope
 	{
 		"nvim-telescope/telescope.nvim",

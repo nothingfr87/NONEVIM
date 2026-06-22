@@ -15,9 +15,16 @@ return {
 		opts = {
 			cursor_color = "#cba6f7",
 			stiffness = 0.2,
-			damping = 0.6,
 			stiffness_insert_mode = 0.3,
-			damping_insert_mode = 0.2,
+		},
+	},
+
+	-- Neovim Better Notify
+	{
+		"rcarriga/nvim-notify",
+		event = "VeryLazy",
+		opts = {
+			background_colour = "#000000",
 		},
 	},
 

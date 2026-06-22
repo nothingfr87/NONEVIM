@@ -2,16 +2,14 @@ return {
 	-- LSP Config
 	{
 		"neovim/nvim-lspconfig",
-		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 			-- Emmet
 			vim.lsp.config("emmet_ls", { capabilities = capabilities })
 			-- HTML
 			vim.lsp.config("html", { capabilities = capabilities })
 			-- CSS
-			vim.lsp.config("css", { capabilities = capabilities })
+			vim.lsp.config("cssls", { capabilities = capabilities })
 			-- JS/TS
 			vim.lsp.config("ts_ls", { capabilities = capabilities })
 			-- Python
@@ -32,15 +30,7 @@ return {
 					},
 				},
 			})
-			vim.lsp.enable({
-				"html",
-				"css",
-				"ts_ls",
-				"lua_ls",
-				"pyright",
-				"clangd",
-				"emmet_ls",
-			})
+			vim.lsp.enable({ "html", "cssls", "ts_ls", "lua_ls", "pyright", "clangd", "emmet_ls" })
 		end,
 	},
 

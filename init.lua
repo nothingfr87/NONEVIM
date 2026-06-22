@@ -98,3 +98,6 @@ end
 
 vim.cmd("colorscheme catppuccin-mocha")
 transparent()
+
+-- Neovim Notify
+vim.notify = require("notify")
