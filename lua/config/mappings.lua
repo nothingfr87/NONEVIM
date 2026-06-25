@@ -67,5 +67,8 @@ set("n", "<leader>>", "<C-w>>", { desc = "Increase width" })
 set("n", "<leader>+", "<C-w>+", { desc = "Increase height" })
 set("n", "<leader>-", "<C-w>-", { desc = "Decrease height" })
 
+-- Go to Definition
+set("n", "gd", ":lua vim.lsp.buf.definition()<CR>", { desc = "Go to Definition" })
+
 -- Remap keybinds
 set("t", "<Esc>", "<C-\\><C-n>", { desc = "Switch to normal mode in toggle term" })
