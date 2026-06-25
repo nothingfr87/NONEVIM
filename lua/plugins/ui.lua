@@ -8,17 +8,6 @@ return {
 		opts = {},
 	},
 
-	-- Smear Cursor Animations
-	{
-		"sphamba/smear-cursor.nvim",
-		event = "VeryLazy",
-		opts = {
-			cursor_color = "#cba6f7",
-			stiffness = 0.2,
-			stiffness_insert_mode = 0.3,
-		},
-	},
-
 	-- Neovim Better Notify
 	{
 		"rcarriga/nvim-notify",

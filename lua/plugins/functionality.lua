@@ -53,6 +53,11 @@ return {
 		lazy = false,
 	},
 
+	-- Cord
+	{
+		"vyfor/cord.nvim",
+	},
+
 	-- UFO
 	{
 		"kevinhwang91/nvim-ufo",
