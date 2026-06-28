@@ -7,6 +7,13 @@ return {
 		opts = {},
 	},
 
+	-- Auto Pair
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
+	},
+
 	-- Auto Close Tag
 	{
 		"windwp/nvim-ts-autotag",
@@ -49,7 +56,6 @@ return {
 	-- Render Markdown
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
-		ft = { "markdown" },
 		lazy = false,
 	},
 

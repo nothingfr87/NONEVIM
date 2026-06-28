@@ -28,9 +28,34 @@ set("n", "<leader>w", ":BufferLinePickClose<CR>", { desc = "Pick a Tab to close"
 set("n", "<leader>p", ":BufferLinePick<CR>", { desc = "Pick a Tab to open" })
 
 -- Git signs
+function git_add()
+	require("toggleterm.terminal").Terminal
+		:new({
+			cmd = "git add .",
+			direction = "float",
+			size = 3,
+			close_on_exit = false,
+		})
+		:toggle()
+end
+
+function git_commit()
+	require("toggleterm.terminal").Terminal
+		:new({
+			cmd = "git commit",
+			direction = "float",
+			size = 3,
+			close_on_exit = false,
+		})
+		:toggle()
+end
+
 set("n", "<leader>gw", ":Gitsigns toggle_linehl<CR>", { desc = "Toggle Git Line Diff" })
 set("n", "<leader>gd", ":Gitsigns toggle_deleted<CR>", { desc = "Toggle Git Line Deleted" })
 set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle Git Line Blame" })
+set("n", "<leader>gh", ":Gitsigns preview_hunk<CR>", { desc = "Preview Git Hunk" })
+set("n", "<leader>gs", git_commit, { desc = "Git Commit" })
+set("n", "<leader>ga", git_add, { desc = "Git Add" })
 
 -- Live Server
 set("n", "<leader>r", ":LiveServerToggle<CR>", { desc = "Toggle Live Server" })

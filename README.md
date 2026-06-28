@@ -25,6 +25,53 @@ NONEVIM is my personal neovim configuration
 
 ---
 
+## Requirements
+
+Before installing NONEVIM you need to have these things in order to install it
+
+### System
+
+| Program/Tool | Purpose |
+| ------------ | ------- |
+| Git | Cloning the repositery |
+| GCC | Compiling native modules |
+| CURL | Downloading extra resources (if needed) |
+| make | Building plugin dependencies |
+
+### Runtime (In Neovim)
+
+| Program/Tool | Purpose |
+| ------------ | ------- |
+| ripgrep | For `live_grep` and `grep_sring` for telescope |
+| fd | Finder (for telescope) |
+| tree-sitter-cli | Treecitter CLI Interface (for nvim-treesitter) |
+
+### LSP
+
+
+| LSP | Purpose |
+| --- | ------- |
+| lua_ls | LUA LSP |
+| pyright | Python LSP |
+| clangd | C/C++ LSP |
+| ts_ls | JS/TS LSP |
+| html | HTML LSP |
+| cssls | CSS LSP |
+| emmet_ls | Emmet Extension-like on VSCode imported to Neovim |
+
+---
+
+### Formatter
+
+| Formatter | Purpose |
+| --------- | ------- |
+| stylua | Lua Formatter |
+| pretter | JS/TS, HTML, CSS Formatter |
+| clang-format | C/C++ Formatter |
+| autopep8 | Python Formatter |
+
+---
+
 ## Installation:
 
 ```bash
