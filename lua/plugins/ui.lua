@@ -8,15 +8,6 @@ return {
 		opts = {},
 	},
 
-	-- Neovim Better Notify
-	{
-		"rcarriga/nvim-notify",
-		event = "VeryLazy",
-		opts = {
-			background_colour = "#000000",
-		},
-	},
-
 	-- Indentation Line Guides
 	{
 		"nvim-mini/mini.indentscope",
