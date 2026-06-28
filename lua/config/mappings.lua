@@ -34,7 +34,7 @@ function git_add()
 			cmd = "git add .",
 			direction = "float",
 			size = 3,
-			close_on_exit = false,
+			close_on_exit = true,
 		})
 		:toggle()
 end
@@ -45,7 +45,7 @@ function git_commit()
 			cmd = "git commit",
 			direction = "float",
 			size = 3,
-			close_on_exit = false,
+			close_on_exit = true,
 		})
 		:toggle()
 end
