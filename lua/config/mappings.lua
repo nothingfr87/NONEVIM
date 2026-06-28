@@ -97,3 +97,16 @@ set("n", "gd", ":lua vim.lsp.buf.definition()<CR>", { desc = "Go to Definition" 
 
 -- Remap keybinds
 set("t", "<Esc>", "<C-\\><C-n>", { desc = "Switch to normal mode in toggle term" })
+
+-- Opening a floating terminal to do simple commands
+function float_term()
+	require("toggleterm.terminal").Terminal
+		:new({
+			direction = "float",
+			size = 6,
+			close_on_exit = true,
+		})
+		:toggle()
+end
+
+set("n", "cf", float_term, { desc = "Open a floating terminal" })
