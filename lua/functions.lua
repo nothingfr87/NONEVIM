@@ -19,6 +19,15 @@ function git_commit()
 	}):toggle()
 end
 
+-- LSP Diagnostics
+_G.lsp_diagnostics = function()
+	local e = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+	local w = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
+	local err = (e > 0) and (" " .. e .. "   ") or ""
+	local warn = (w > 0) and (" " .. w .. " ") or ""
+	return err .. warn
+end
+
 -- Bufferline
 function _G.buffer_tabline()
 	local s = ""

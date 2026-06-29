@@ -1,12 +1,12 @@
 -- Install Plugins
 vim.pack.add(require("plugins"))
 
+-- Functions
+require("functions")
+
 -- Options & Settings
 require("setup")
 require("options")
-
--- Functions
-require("functions")
 
 -- Mappings
 require("mappings")
@@ -15,6 +15,8 @@ require("mappings")
 require("other")
 require("lsp")
 require("ui")
+
+-- Statusline
 
 -- Set Theme
 function transparent()

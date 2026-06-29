@@ -1,3 +1,5 @@
+print("Options Loaded")
+
 require("functions")
 
 -- Options
@@ -21,13 +23,13 @@ o.termguicolors = true
 o.swapfile = false
 o.mouse = "a"
 o.wrap = false
+o.laststatus = 3
+o.statusline =
+	"%#Normal#%{mode() ==# 'n' ? 'NORMAL' : mode() ==# 'i' ? 'INSERT' : mode() ==# 'v' ? 'VISUAL' : 'COMMAND'} %{&modified?'+':''} %= %{luaeval('_G.lsp_diagnostics()')} %f"
 o.ignorecase = false
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 g.loaded_tutor_mode_plugin = 1
-g.tpipeline_autoembed = 0
-o.laststatus = 3
-o.showmode = true
 o.clipboard = "unnamedplus"
 o.fillchars = "eob: ,fold: ,foldopen:,foldsep: ,foldinner: ,foldclose:"
 o.foldcolumn = "1"
