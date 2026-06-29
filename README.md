@@ -12,16 +12,8 @@ NONEVIM is my personal neovim configuration
 - Code highlighting (via treesitter-nvim)
 - Key Mappings for more efficient coding & writing
 - Error, and Warning Diagnositcs
-- Ability to fold code (via UFO)
+- Ability to fold code
 - A real-time markdown renderer (via render-markdown)
-- Rich UI (with neotree, lualine, catppuccin theme, and much more)
-
----
-
-## Screenshot:
-
-![Screenshot](screenshot1.png)
-![Screenshot](screenshot3.png)
 
 ---
 
@@ -43,7 +35,8 @@ Before installing NONEVIM you need to have these things in order to install it
 | Program/Tool | Purpose |
 | ------------ | ------- |
 | ripgrep | For `live_grep` and `grep_sring` for telescope |
-| fd | Finder (for telescope) |
+| fd | Finder (for fzf) |
+| fzf | Fuzzy Finder |
 | tree-sitter-cli | Treecitter CLI Interface (for nvim-treesitter) |
 
 ### LSP
@@ -88,9 +81,3 @@ mv /path/to/repositer/ ~/.config/
 cd ~/.config/nvim
 rm -rf .git/ README.md screenshot*
 ```
-
---- 
-
-## Documentation:
-
-[![Go to Docs](https://img.shields.io/badge/Go%20To-Documentation-cba6f7?style=for-the-badge&logo=google-docs&logoColor=ffffff&labelColor=1e1e2e)](https://nothingfr87.github.io/NONEVIM/)

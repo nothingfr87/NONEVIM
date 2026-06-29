@@ -1,44 +1,19 @@
+require("functions")
+
 local set = vim.keymap.set
-local Terminal = require("toggleterm.terminal").Terminal
 
 -- Toggle Term
 set("n", "<C-t>", ":ToggleTerm<CR>", { desc = "Toggle Term" })
 
--- Code Runner
-set("n", "<C-r>", ":RunCode<CR>", { desc = "Code Runner" })
-
 -- Render Markdown
 set("n", "<leader>md", ":RenderMarkdown toggle<CR>", { desc = "Toggle Render Markdown" })
 
--- UFO
-set("n", "zR", require("ufo").openAllFolds)
-set("n", "zM", require("ufo").closeAllFolds)
-
--- Bufferline
-set("n", "<Tab>", ":BufferLineCycleNext<CR>", { desc = "Cycle Through Tabs" })
-set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { desc = "Cycle Through Previuos Tabs" })
-set("n", "<leader>w", ":BufferLinePickClose<CR>", { desc = "Pick a Tab to close" })
-set("n", "<leader>p", ":BufferLinePick<CR>", { desc = "Pick a Tab to open" })
+-- BufferLine
+set("n", "<Tab>", ":bnext<CR>", { desc = "Cycle Through Tabs" })
+set("n", "<S-Tab>", ":bprev<CR>", { desc = "Cycle Through Previuos Tabs" })
+set("n", "<leader>w", ":bdelete<CR>", { desc = "Delete Current Tab" })
 
 -- Git signs
-function git_add()
-	Terminal:new({
-		cmd = "git add .",
-		direction = "float",
-		size = 3,
-		close_on_exit = true,
-	}):toggle()
-end
-
-function git_commit()
-	Terminal:new({
-		cmd = "git commit",
-		direction = "float",
-		size = 3,
-		close_on_exit = true,
-	}):toggle()
-end
-
 set("n", "<leader>gw", ":Gitsigns toggle_linehl<CR>", { desc = "Toggle Git Line Diff" })
 set("n", "<leader>gd", ":Gitsigns toggle_deleted<CR>", { desc = "Toggle Git Line Deleted" })
 set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle Git Line Blame" })
@@ -88,21 +63,10 @@ set("n", "gd", ":lua vim.lsp.buf.definition()<CR>", { desc = "Go to Definition" 
 set("t", "<Esc>", "<C-\\><C-n>", { desc = "Switch to normal mode in toggle term" })
 
 -- FZF
-local function open_file_with_fd_fzf()
-	Terminal:new({
-		cmd = "fd --type f | fzf --preview='cat {1}' > /tmp/selected",
-		direction = "float",
-		size = 10,
-		on_exit = function()
-			local file = vim.fn.readfile("/tmp/selected")[1]
-			if file and file ~= "" then
-				vim.schedule(function()
-					vim.cmd("edit " .. vim.fn.fnameescape(file))
-				end)
-			end
-			os.remove("/tmp/selected")
-		end,
-	}):toggle()
-end
+vim.keymap.set("n", "<leader>e", open_file)
 
-vim.keymap.set("n", "<leader>v", open_file_with_fd_fzf)
+-- Create Files With FZF
+vim.keymap.set("n", "<leader>a", create_file)
+
+-- Delete Files With FZF
+vim.keymap.set("n", "<C-d>", delete_file)
