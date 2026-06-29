@@ -5,6 +5,7 @@ return {
 	"https://github.com/brenoprata10/nvim-highlight-colors",
 	"https://github.com/nvim-tree/nvim-web-devicons",
 	"https://github.com/MunifTanjim/nui.nvim",
+	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/hrsh7th/nvim-cmp",
 	"https://github.com/hrsh7th/cmp-nvim-lsp",
@@ -21,4 +22,8 @@ return {
 	"https://github.com/vyfor/cord.nvim",
 	"https://git.barrettruth.com/barrettruth/live-server.nvim",
 	"https://github.com/lewis6991/gitsigns.nvim",
+	"https://github.com/vimpostor/vim-tpipeline",
+	-- "https://github.com/akinsho/bufferline.nvim",
+	-- "https://github.com/nvim-lualine/lualine.nvim",
+	-- "https://github.com/nvim-neo-tree/neo-tree.nvim",
 }

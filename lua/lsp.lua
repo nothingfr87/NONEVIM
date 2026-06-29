@@ -1,16 +1,5 @@
--- UI Plugins
--- Indentscope
-require("mini.indentscope").setup({
-	symbol = "▎",
-	options = {
-		try_as_border = true,
-	},
-})
-
--- Highlight Colors
-require("nvim-highlight-colors").setup({})
-
 -- LSP Plugins
+
 -- Nvim LSP Config
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- Emmet
@@ -138,21 +127,5 @@ require("conform").setup({
 	format_on_save = {
 		timeout_ms = 1000,
 		lsp_format = "fallback",
-	},
-})
-
--- Other Plugins
--- ToggleTerm
-require("toggleterm").setup()
-
--- Auto Pairs
-require("nvim-autopairs").setup()
-
--- TS Auto Tag
-require("nvim-ts-autotag").setup({
-	per_filetype = {
-		["html"] = {
-			enable_close = false,
-		},
 	},
 })

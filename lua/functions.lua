@@ -1,5 +1,24 @@
 local Terminal = require("toggleterm.terminal").Terminal
 
+-- Gitsigns
+function git_add()
+	Terminal:new({
+		cmd = "git add .",
+		direction = "float",
+		size = 3,
+		close_on_exit = true,
+	}):toggle()
+end
+
+function git_commit()
+	Terminal:new({
+		cmd = "git commit",
+		direction = "float",
+		size = 3,
+		close_on_exit = true,
+	}):toggle()
+end
+
 -- Bufferline
 function _G.buffer_tabline()
 	local s = ""
@@ -20,30 +39,11 @@ function _G.buffer_tabline()
 	return s .. "%#TabLineFill#"
 end
 
--- Gitsigns
-function git_add()
-	Terminal:new({
-		cmd = "git add .",
-		direction = "float",
-		size = 3,
-		close_on_exit = true,
-	}):toggle()
-end
-
-function git_commit()
-	Terminal:new({
-		cmd = "git commit",
-		direction = "float",
-		size = 3,
-		close_on_exit = true,
-	}):toggle()
-end
-
 -- FZF
 function open_file()
 	Terminal:new({
 		cmd = "fd --type f | fzf --preview='cat {1}' > /tmp/selected",
-		direction = "float",
+		direction = "horizontal",
 		size = 10,
 		on_exit = function()
 			local file = vim.fn.readfile("/tmp/selected")[1]
@@ -69,7 +69,7 @@ end
 function delete_file()
 	Terminal:new({
 		cmd = "fd --type f | fzf --preview='cat {1}' > /tmp/selected",
-		direction = "float",
+		direction = "horizontal",
 		size = 10,
 		on_exit = function()
 			local file = vim.fn.readfile("/tmp/selected")[1]

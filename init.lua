@@ -3,6 +3,7 @@ vim.pack.add(require("plugins"))
 
 -- Options & Settings
 require("setup")
+require("options")
 
 -- Functions
 require("functions")
@@ -11,10 +12,12 @@ require("functions")
 require("mappings")
 
 -- Plugins Configuration
-require("config")
+require("other")
+require("lsp")
+require("ui")
 
 -- Set Theme
-local function transparent()
+function transparent()
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 end
 
