@@ -27,14 +27,6 @@ return {
 		},
 	},
 
-	-- Telescope
-	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		cmd = "Telescope",
-		lazy = false,
-	},
-
 	-- Which Key
 	{
 		"folke/which-key.nvim",

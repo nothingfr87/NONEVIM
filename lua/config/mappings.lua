@@ -1,12 +1,5 @@
 local set = vim.keymap.set
-
--- NeoTree
-set("n", "<leader>b", ":Neotree toggle<CR>", { desc = "Toggle Neotree" })
-set("n", "<leader>e", ":Neotree focus<CR>", { desc = "Focus Neotree" })
-
--- Telescope
-set("n", "<leader>f", ":Telescope find_files<CR>", { desc = "Open telescope" })
-set("n", "<leader><S-g>", ":Telescope live_grep<CR>", { desc = "Search Words in Telescope" })
+local Terminal = require("toggleterm.terminal").Terminal
 
 -- Toggle Term
 set("n", "<C-t>", ":ToggleTerm<CR>", { desc = "Toggle Term" })
@@ -29,25 +22,21 @@ set("n", "<leader>p", ":BufferLinePick<CR>", { desc = "Pick a Tab to open" })
 
 -- Git signs
 function git_add()
-	require("toggleterm.terminal").Terminal
-		:new({
-			cmd = "git add .",
-			direction = "float",
-			size = 3,
-			close_on_exit = true,
-		})
-		:toggle()
+	Terminal:new({
+		cmd = "git add .",
+		direction = "float",
+		size = 3,
+		close_on_exit = true,
+	}):toggle()
 end
 
 function git_commit()
-	require("toggleterm.terminal").Terminal
-		:new({
-			cmd = "git commit",
-			direction = "float",
-			size = 3,
-			close_on_exit = true,
-		})
-		:toggle()
+	Terminal:new({
+		cmd = "git commit",
+		direction = "float",
+		size = 3,
+		close_on_exit = true,
+	}):toggle()
 end
 
 set("n", "<leader>gw", ":Gitsigns toggle_linehl<CR>", { desc = "Toggle Git Line Diff" })
@@ -98,15 +87,22 @@ set("n", "gd", ":lua vim.lsp.buf.definition()<CR>", { desc = "Go to Definition" 
 -- Remap keybinds
 set("t", "<Esc>", "<C-\\><C-n>", { desc = "Switch to normal mode in toggle term" })
 
--- Opening a floating terminal to do simple commands
-function float_term()
-	require("toggleterm.terminal").Terminal
-		:new({
-			direction = "float",
-			size = 6,
-			close_on_exit = true,
-		})
-		:toggle()
+-- FZF
+local function open_file_with_fd_fzf()
+	Terminal:new({
+		cmd = "fd --type f | fzf --preview='cat {1}' > /tmp/selected",
+		direction = "float",
+		size = 10,
+		on_exit = function()
+			local file = vim.fn.readfile("/tmp/selected")[1]
+			if file and file ~= "" then
+				vim.schedule(function()
+					vim.cmd("edit " .. vim.fn.fnameescape(file))
+				end)
+			end
+			os.remove("/tmp/selected")
+		end,
+	}):toggle()
 end
 
-set("n", "cf", float_term, { desc = "Open a floating terminal" })
+vim.keymap.set("n", "<leader>v", open_file_with_fd_fzf)
