@@ -1,5 +1,3 @@
-print("Options Loaded")
-
 require("functions")
 
 -- Options
@@ -27,6 +25,7 @@ o.laststatus = 3
 o.statusline =
 	"%#Normal#%{mode() ==# 'n' ? 'NORMAL' : mode() ==# 'i' ? 'INSERT' : mode() ==# 'v' ? 'VISUAL' : 'COMMAND'} %{&modified?'+':''} %= %{luaeval('_G.lsp_diagnostics()')} %f"
 o.ignorecase = false
+g.tpipeline_autoembed = 0
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 g.loaded_tutor_mode_plugin = 1
