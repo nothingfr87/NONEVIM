@@ -97,18 +97,3 @@ function _G.buffer_tabline()
 	end
 	return s .. "%#TabLineFill#"
 end
-
--- LSP Diagnostics
-_G.lsp_diagnostics = function()
-	local e = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
-	local w = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
-	local h = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
-	local i = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
-
-	local err = (e > 0) and (" " .. e .. "   ") or ""
-	local warn = (w > 0) and (" " .. w .. " ") or ""
-	local hint = (h > 0) and ("󰌵 " .. h .. "   ") or ""
-	local info = (i > 0) and (" " .. i .. " ") or ""
-
-	return err .. warn .. hint .. info
-end

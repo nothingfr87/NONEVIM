@@ -22,7 +22,6 @@ return {
 	"https://github.com/vyfor/cord.nvim",
 	"https://git.barrettruth.com/barrettruth/live-server.nvim",
 	"https://github.com/lewis6991/gitsigns.nvim",
-	"https://github.com/vimpostor/vim-tpipeline",
 	-- "https://github.com/akinsho/bufferline.nvim",
 	-- "https://github.com/nvim-lualine/lualine.nvim",
 	-- "https://github.com/nvim-neo-tree/neo-tree.nvim",
