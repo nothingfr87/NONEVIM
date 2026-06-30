@@ -16,6 +16,9 @@ require("other")
 require("lsp")
 require("ui")
 
+-- Statusline
+require("statusline")
+
 -- Set Theme
 function transparent()
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })

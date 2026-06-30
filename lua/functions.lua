@@ -23,7 +23,7 @@ end
 function open_file()
 	Terminal:new({
 		cmd = "fd --type f | fzf --preview='cat {1}' > /tmp/selected",
-		direction = "horizontal",
+		direction = "float",
 		size = 10,
 		on_exit = function()
 			local file = vim.fn.readfile("/tmp/selected")[1]
@@ -49,7 +49,7 @@ end
 function delete_file()
 	Terminal:new({
 		cmd = "fd --type f | fzf --preview='cat {1}' > /tmp/selected",
-		direction = "horizontal",
+		direction = "float",
 		size = 10,
 		on_exit = function()
 			local file = vim.fn.readfile("/tmp/selected")[1]
@@ -62,76 +62,6 @@ function delete_file()
 			os.remove("/tmp/selected")
 		end,
 	}):toggle()
-end
-
--- Statusline functions
-
--- Git Branch (For Statusline)
-function get_git_branch()
-	if vim.fn.isdirectory(".git") ~= 0 then
-		local branch = vim.fn.system("git branch --show-current 2>/dev/null")
-		branch = branch:gsub("[%z\n\r]+$", "")
-		if branch ~= "" then
-			return "" .. " " .. branch
-		end
-	end
-	return ""
-end
-
--- OS Name Component for statusline
-_G.os_name = function()
-	local os = vim.loop.os_uname().sysname
-
-	local icons = {
-		Linux = "",
-		Darwin = "󰀵",
-		Windows_NT = "󰍲",
-		FreeBSD = "󰣠",
-		OpenBSD = "󰈺",
-		NetBSD = "󰈺",
-	}
-
-	return string.format(icons[os] or "󰈙")
-end
-
--- File icons for statusline
-_G.get_file_icon = function()
-	local ok, icons = pcall(require, "nvim-web-devicons")
-	if not ok then
-		return ""
-	end
-	local f = vim.fn.expand("%:t")
-	local e = vim.fn.expand("%:e")
-	local icon = icons.get_icon(f, e, { default = true })
-	return icon and icon .. " " or ""
-end
-
--- Mode Component for Statusline
-_G.mode_comp = function()
-	modes = {
-		["n"] = "NORMAL",
-		["no"] = "NORMAL",
-		["v"] = "VISUAL",
-		["V"] = "VISUAL LINE",
-		["\v"] = "VISUAL BLOCK",
-		["s"] = "SELECT",
-		["S"] = "SELECT LINE",
-		["s"] = "SELECT BLOCK",
-		["i"] = "INSERT",
-		["ic"] = "INSERT",
-		["R"] = "REPLACE",
-		["Rv"] = "VISUAL REPLACE",
-		["c"] = "COMMAND",
-		["cv"] = "VIM EX",
-		["ce"] = "EX",
-		["r"] = "PROMPT",
-		["rm"] = "MORE",
-		["r?"] = "CONFIRM",
-		["!"] = "SHELL",
-		["t"] = "TERMINAL",
-	}
-	local mode = vim.fn.mode()
-	return string.format(" %s ", modes[mode] or "UNKNOWN"):upper()
 end
 
 -- Bufferline
