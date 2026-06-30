@@ -22,7 +22,7 @@ end
 -- FZF
 function open_file()
 	Terminal:new({
-		cmd = "fd --type f | fzf --preview='cat {1}' > /tmp/selected",
+		cmd = "fd --type f | fzf --preview='cat --color=always {1}' > /tmp/selected",
 		direction = "float",
 		size = 10,
 		on_exit = function()
@@ -48,7 +48,7 @@ end
 
 function delete_file()
 	Terminal:new({
-		cmd = "fd --type f | fzf --preview='cat {1}' > /tmp/selected",
+		cmd = "fd --type f | fzf --preview='cat --color=always {1}' > /tmp/selected",
 		direction = "float",
 		size = 10,
 		on_exit = function()
