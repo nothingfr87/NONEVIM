@@ -38,8 +38,3 @@ api.nvim_create_autocmd("ColorScheme", {
 api.nvim_set_hl(0, "CmpNormal", { bg = "#1e1e2e" })
 api.nvim_set_hl(0, "CmpBorder", { fg = "#cba6f7", bg = "#1e1e2e" })
 api.nvim_set_hl(0, "CmpSel", { bg = "#313244", bold = true })
-
-vim.api.nvim_set_hl(0, "StatusLineModeNormal", {
-	fg = "#11111b",
-	bg = "#89b4fa",
-})
