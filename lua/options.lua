@@ -1,5 +1,14 @@
 require("functions")
 
+-- Git Branch Autocmd
+local git_branch_augroup = vim.api.nvim_create_augroup("GitBranchStatusline", { clear = true })
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "FocusGained" }, {
+	group = git_branch_augroup,
+	callback = function()
+		vim.b.git_branch = get_git_branch()
+	end,
+})
+
 -- Options
 local o = vim.opt
 local g = vim.g
@@ -22,10 +31,10 @@ o.swapfile = false
 o.mouse = "a"
 o.wrap = false
 o.laststatus = 3
+o.showmode = false
 o.statusline =
-	"%#Normal#%{mode() ==# 'n' ? 'NORMAL' : mode() ==# 'i' ? 'INSERT' : mode() ==# 'v' ? 'VISUAL' : 'COMMAND'} %{&modified?'+':''} %= %{luaeval('_G.lsp_diagnostics()')} %f"
+	"%{v:lua.mode_comp()} | %{b:git_branch != '' ? ' ' . b:git_branch . ' ' : ''} | %.30t | %= %{v:lua.lsp_diagnostics()} | %{v:lua.os_name()} | %{&fileencoding?&fileencoding:&encoding} | %{v:lua.get_file_icon()}%{&filetype} | %P | %l:%c"
 o.ignorecase = false
-g.tpipeline_autoembed = 0
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 g.loaded_tutor_mode_plugin = 1

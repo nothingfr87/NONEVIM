@@ -1,5 +1,12 @@
 -- UI Plugins Configuration
 
+-- Catppuccin
+require("catppuccin").setup({
+	integrations = {
+		statusline = true,
+	},
+})
+
 -- Indentscope
 require("mini.indentscope").setup({
 	symbol = "▎",

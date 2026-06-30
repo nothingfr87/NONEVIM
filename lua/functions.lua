@@ -19,35 +19,6 @@ function git_commit()
 	}):toggle()
 end
 
--- LSP Diagnostics
-_G.lsp_diagnostics = function()
-	local e = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
-	local w = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
-	local err = (e > 0) and (" " .. e .. "   ") or ""
-	local warn = (w > 0) and (" " .. w .. " ") or ""
-	return err .. warn
-end
-
--- Bufferline
-function _G.buffer_tabline()
-	local s = ""
-	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-		if vim.bo[buf].buflisted then
-			local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(buf), ":t")
-			if name == "" then
-				name = "[No Name]"
-			end
-			if buf == vim.api.nvim_get_current_buf() then
-				s = s .. "%#TabLineSel#"
-			else
-				s = s .. "%#TabLine#"
-			end
-			s = s .. " " .. name .. " "
-		end
-	end
-	return s .. "%#TabLineFill#"
-end
-
 -- FZF
 function open_file()
 	Terminal:new({
@@ -91,4 +62,123 @@ function delete_file()
 			os.remove("/tmp/selected")
 		end,
 	}):toggle()
+end
+
+-- Statusline functions
+
+-- Git Branch (For Statusline)
+function get_git_branch()
+	if vim.fn.isdirectory(".git") ~= 0 then
+		local branch = vim.fn.system("git branch --show-current 2>/dev/null")
+		branch = branch:gsub("[%z\n\r]+$", "")
+		if branch ~= "" then
+			return "" .. " " .. branch
+		end
+	end
+	return ""
+end
+
+-- OS Name Component for statusline
+_G.os_name = function()
+	local os = vim.loop.os_uname().sysname
+
+	local icons = {
+		Linux = "",
+		Darwin = "󰀵",
+		Windows_NT = "󰍲",
+		FreeBSD = "󰣠",
+		OpenBSD = "󰈺",
+		NetBSD = "󰈺",
+	}
+
+	return string.format(icons[os] or "󰈙")
+end
+
+-- File icons for statusline
+_G.get_file_icon = function()
+	local ok, icons = pcall(require, "nvim-web-devicons")
+	if not ok then
+		return ""
+	end
+	local f = vim.fn.expand("%:t")
+	local e = vim.fn.expand("%:e")
+	local icon = icons.get_icon(f, e, { default = true })
+	return icon and icon .. " " or ""
+end
+
+-- Mode Component for Statusline
+_G.mode_comp = function()
+	modes = {
+		["n"] = "NORMAL",
+		["no"] = "NORMAL",
+		["v"] = "VISUAL",
+		["V"] = "VISUAL LINE",
+		["\v"] = "VISUAL BLOCK",
+		["s"] = "SELECT",
+		["S"] = "SELECT LINE",
+		["s"] = "SELECT BLOCK",
+		["i"] = "INSERT",
+		["ic"] = "INSERT",
+		["R"] = "REPLACE",
+		["Rv"] = "VISUAL REPLACE",
+		["c"] = "COMMAND",
+		["cv"] = "VIM EX",
+		["ce"] = "EX",
+		["r"] = "PROMPT",
+		["rm"] = "MORE",
+		["r?"] = "CONFIRM",
+		["!"] = "SHELL",
+		["t"] = "TERMINAL",
+	}
+	local mode = vim.fn.mode()
+	return string.format(" %s ", modes[mode] or "UNKNOWN"):upper()
+end
+
+-- Bufferline
+_G.get_buffer_icon = function(buf)
+	local ok, icons = pcall(require, "nvim-web-devicons")
+	if not ok then
+		return ""
+	end
+
+	local path = vim.api.nvim_buf_get_name(buf)
+	local name = vim.fn.fnamemodify(path, ":t")
+	local ext = vim.fn.fnamemodify(path, ":e")
+
+	local icon = icons.get_icon(name, ext, { default = true })
+	return (icon or "") .. " "
+end
+
+function _G.buffer_tabline()
+	local s = ""
+	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+		if vim.bo[buf].buflisted then
+			local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(buf), ":t")
+			if name == "" then
+				name = "[No Name]"
+			end
+			if buf == vim.api.nvim_get_current_buf() then
+				s = s .. "%#TabLineSel#"
+			else
+				s = s .. "%#TabLine#"
+			end
+			s = s .. " " .. _G.get_buffer_icon(buf) .. name .. " "
+		end
+	end
+	return s .. "%#TabLineFill#"
+end
+
+-- LSP Diagnostics
+_G.lsp_diagnostics = function()
+	local e = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+	local w = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
+	local h = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
+	local i = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
+
+	local err = (e > 0) and (" " .. e .. "   ") or ""
+	local warn = (w > 0) and (" " .. w .. " ") or ""
+	local hint = (h > 0) and ("󰌵 " .. h .. "   ") or ""
+	local info = (i > 0) and (" " .. i .. " ") or ""
+
+	return err .. warn .. hint .. info
 end
