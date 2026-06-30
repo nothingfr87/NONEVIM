@@ -63,37 +63,3 @@ function delete_file()
 		end,
 	}):toggle()
 end
-
--- Bufferline
-_G.get_buffer_icon = function(buf)
-	local ok, icons = pcall(require, "nvim-web-devicons")
-	if not ok then
-		return ""
-	end
-
-	local path = vim.api.nvim_buf_get_name(buf)
-	local name = vim.fn.fnamemodify(path, ":t")
-	local ext = vim.fn.fnamemodify(path, ":e")
-
-	local icon = icons.get_icon(name, ext, { default = true })
-	return (icon or "") .. " "
-end
-
-function _G.buffer_tabline()
-	local s = ""
-	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-		if vim.bo[buf].buflisted then
-			local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(buf), ":t")
-			if name == "" then
-				name = "[No Name]"
-			end
-			if buf == vim.api.nvim_get_current_buf() then
-				s = s .. "%#TabLineSel#"
-			else
-				s = s .. "%#TabLine#"
-			end
-			s = s .. " " .. _G.get_buffer_icon(buf) .. name .. " "
-		end
-	end
-	return s .. "%#TabLineFill#"
-end

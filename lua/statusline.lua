@@ -30,7 +30,7 @@ vim.api.nvim_set_hl(0, "StatusLineDiagInfo", {
 -- Statusline functions
 
 -- Git Branch (For Statusline)
-function get_git_branch()
+_G.get_git_branch = function()
 	if vim.fn.isdirectory(".git") ~= 0 then
 		local branch = vim.fn.system("git branch --show-current 2>/dev/null")
 		branch = branch:gsub("[%z\n\r]+$", "")
@@ -41,6 +41,27 @@ function get_git_branch()
 	return ""
 end
 
+-- Git Diff
+_G.git_diff = function()
+	local gs = vim.b.gitsigns_status_dict or {}
+	local added = gs.added or 0
+	local changed = gs.changed or 0
+	local removed = gs.removed or 0
+	local diff_str = ""
+
+	if added > 0 then
+		diff_str = diff_str .. " + " .. added
+	end
+	if changed > 0 then
+		diff_str = diff_str .. " ~ " .. changed
+	end
+	if removed > 0 then
+		diff_str = diff_str .. " - " .. removed
+	end
+
+	return diff_str
+end
+
 -- OS Name Component for statusline
 _G.os_name = function()
 	local os = vim.loop.os_uname().sysname
@@ -48,7 +69,7 @@ _G.os_name = function()
 	local icons = {
 		Linux = "",
 		Darwin = "󰀵",
-		Windows_NT = "󰍲",
+		Windows = "󰍲",
 		FreeBSD = "󰣠",
 		OpenBSD = "󰈺",
 		NetBSD = "󰈺",
@@ -184,6 +205,7 @@ local status_left = table.concat({
 
 	"%#StatusLine#",
 	"%#StatusLineGitBranch#%{b:git_branch != '' ? ' ' . b:git_branch . ' ' : ''}",
+	"%{v:lua.git_diff()}",
 	"%#StatusLineBranchSep#",
 
 	"%#StatusLine#",

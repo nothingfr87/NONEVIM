@@ -16,6 +16,9 @@ require("other")
 require("lsp")
 require("ui")
 
+-- Bufferline
+require("bufferline")
+
 -- Statusline
 require("statusline")
 
