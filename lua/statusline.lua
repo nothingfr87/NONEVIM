@@ -1,5 +1,3 @@
-require("functions")
-
 -- API Edits
 vim.api.nvim_set_hl(0, "StatusLineGitBranch", {
 	fg = "#cdd6f4",

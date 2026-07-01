@@ -1,30 +1,22 @@
--- Install Plugins
-vim.pack.add(require("plugins"))
-
--- Functions
-require("functions")
-
--- Options & Settings
-require("setup")
+-- Options
 require("options")
 
--- Mappings
-require("mappings")
+-- Basic setup
+require("setup")
 
--- Plugins Configuration
-require("other")
-require("lsp")
-require("ui")
+-- Plugin manager
+require("config.lazy")
 
--- Bufferline
+-- UI 
 require("bufferline")
-
--- Statusline
 require("statusline")
 
--- Set Theme
-function transparent()
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-end
+-- Keymaps
+require("mappings")
 
+-- Theme
 vim.cmd("colorscheme catppuccin-mocha")
+
+-- function transparent()
+-- 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- end
