@@ -13,3 +13,6 @@ require("nvim-ts-autotag").setup({
 		},
 	},
 })
+
+-- Todo Highlight
+require("todo_hl").setup()
