@@ -4,33 +4,31 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			-- Emmet
-			vim.lsp.config("emmet_ls", { capabilities = capabilities })
-			-- HTML
-			vim.lsp.config("html", { capabilities = capabilities })
-			-- CSS
-			vim.lsp.config("cssls", { capabilities = capabilities })
-			-- JS/TS
-			vim.lsp.config("ts_ls", { capabilities = capabilities })
-			-- Python
-			vim.lsp.config("pyright", { capabilities = capabilities })
-			-- C/C++
-			vim.lsp.config("clangd", { capabilities = capabilities })
-			-- Lua
+			local servers = { "html", "cssls", "ts_ls", "lua_ls", "pyright", "clangd", "emmet_ls" }
+
+			for _, server in ipairs(servers) do
+				vim.lsp.config(server, { capabilities = capabilities })
+			end
+
 			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 				settings = {
-					workspace = {
-						library = vim.api.nvim_get_runtime_file("", true),
-					},
 					Lua = {
-						diagnostics = {
-							globals = { "vim" },
+						runtime = {
+							version = "LuaJIT",
+						},
+						workspace = {
+							checkThirdParty = false,
+							library = {
+								vim.env.VIMRUNTIME,
+							},
+							ignoreDir = { "node_modules", ".git" },
 						},
 					},
 				},
 			})
-			vim.lsp.enable({ "html", "cssls", "ts_ls", "lua_ls", "pyright", "clangd", "emmet_ls" })
+
+			vim.lsp.enable(servers)
 		end,
 	},
 
@@ -61,6 +59,7 @@ return {
 							Folder = "󰉋",
 							Class = "󰠱",
 						}
+						item.menu = ""
 						item.kind = " " .. (icons[item.kind] or "") .. " "
 						return item
 					end,

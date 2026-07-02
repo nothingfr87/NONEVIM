@@ -5,24 +5,19 @@ vim.api.nvim_set_hl(0, "StatusLineGitBranch", {
 })
 vim.api.nvim_set_hl(0, "StatusLineBranchSep", {
 	fg = "#313244",
-	bg = "#1e1e2e",
 })
 -- LSP Diagnostics
 vim.api.nvim_set_hl(0, "StatusLineDiagError", {
 	fg = "#f38ba8",
-	bg = "#181825",
 })
 vim.api.nvim_set_hl(0, "StatusLineDiagWarn", {
 	fg = "#f9e2af",
-	bg = "#181825",
 })
 vim.api.nvim_set_hl(0, "StatusLineDiagHint", {
 	fg = "#74c7ec",
-	bg = "#181825",
 })
 vim.api.nvim_set_hl(0, "StatusLineDiagInfo", {
 	fg = "#89dceb",
-	bg = "#181825",
 })
 
 -- Statusline functions
@@ -115,12 +110,9 @@ local mode_colors = {
 	no = "#89b4fa",
 	i = "#a6e3a1",
 	ic = "#a6e3a1",
-	v = "#f9e2af",
-	V = "#f9e2af",
-	["\22"] = "#f9e2af",
-	s = "#f5c2e7",
-	S = "#f5c2e7",
-	["\19"] = "#f5c2e7",
+	v = "#f5c2e7",
+	V = "#f5c2e7",
+	["\22"] = "#f5c2e7",
 	R = "#f38ba8",
 	Rc = "#f38ba8",
 	Rv = "#f38ba8",
@@ -130,7 +122,6 @@ local mode_colors = {
 	r = "#94e2d5",
 	rm = "#94e2d5",
 	["r?"] = "#94e2d5",
-
 	t = "#cba6f7",
 }
 
@@ -164,10 +155,7 @@ _G.mode_comp = function()
 		["no"] = "NORMAL",
 		["v"] = "VISUAL",
 		["V"] = "V-LINE",
-		["\v"] = "V-BLOCK",
-		["s"] = "SELECT",
-		["S"] = "SELECT LINE",
-		["s"] = "SELECT BLOCK",
+		["\22"] = "V-BLOCK",
 		["i"] = "INSERT",
 		["ic"] = "INSERT",
 		["R"] = "REPLACE",
@@ -178,11 +166,10 @@ _G.mode_comp = function()
 		["r"] = "PROMPT",
 		["rm"] = "MORE",
 		["r?"] = "CONFIRM",
-		["!"] = "SHELL",
 		["t"] = "TERMINAL",
 	}
 	local mode = vim.fn.mode()
-	return string.format(" %s ", modes[mode] or "UNKNOWN"):upper()
+	return string.format("%s", modes[mode] or "UNKNOWN"):upper()
 end
 
 -- Git Branch Autocmd
@@ -194,6 +181,11 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "FocusGained" }, {
 	end,
 })
 
+-- Git Branch Sep
+_G.git_branch_sep = function()
+	return (vim.b.git_branch ~= "" and "") or ""
+end
+
 vim.opt.showmode = false
 
 local status_left = table.concat({
@@ -204,12 +196,10 @@ local status_left = table.concat({
 	"%#StatusLine#",
 	"%#StatusLineGitBranch#%{b:git_branch != '' ? ' ' . b:git_branch . ' ' : ''}",
 	"%{v:lua.git_diff()}",
-	"%#StatusLineBranchSep#",
+	"%#StatusLineBranchSep#%{v:lua.git_branch_sep()}",
 
 	"%#StatusLine#",
-	" %.30t ",
-
-	" ",
+	" %.30t ",
 
 	"%=",
 })
@@ -223,13 +213,13 @@ local status_diag = table.concat({
 })
 
 local status_right = table.concat({
-	" %{v:lua.os_name()}",
-	"  %{&fileencoding ? &fileencoding : &encoding}",
-	"  %{v:lua.get_file_icon()}%{&filetype}",
+	" %{v:lua.os_name()} ",
+	" %{&fileencoding ? &fileencoding : &encoding} ",
+	" %{v:lua.get_file_icon()}%{&filetype} ",
 
-	" %#StatusLineBranchSep#",
+	"%#StatusLineBranchSep#",
 	"%#StatusLine#",
-	"%#StatusLineGitBranch# %P ",
+	"%#StatusLineGitBranch#%P ",
 
 	"%#StatusLineMode# %l:%c",
 	"%#StatusLineModeSep#",

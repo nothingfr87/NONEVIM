@@ -1,69 +1,9 @@
-local Terminal = require("toggleterm.terminal").Terminal
+require("config.functions")
 local set = vim.keymap.set
 
--- Gitsigns
-function git_add()
-	Terminal:new({
-		cmd = "git add .",
-		direction = "float",
-		size = 3,
-		close_on_exit = true,
-	}):toggle()
-end
-
-function git_commit()
-	Terminal:new({
-		cmd = "git commit",
-		direction = "float",
-		size = 3,
-		close_on_exit = true,
-	}):toggle()
-end
-
--- FZF
-function open_file()
-	Terminal:new({
-		cmd = "fd --type f | fzf --preview='cat --color=always {1}' > /tmp/selected",
-		direction = "float",
-		size = 10,
-		on_exit = function()
-			local file = vim.fn.readfile("/tmp/selected")[1]
-			if file and file ~= "" then
-				vim.schedule(function()
-					vim.cmd("edit " .. vim.fn.fnameescape(file))
-				end)
-			end
-			os.remove("/tmp/selected")
-		end,
-	}):toggle()
-end
-
-function create_file()
-	vim.ui.input({ prompt = "Filename: " }, function(input)
-		if input and input ~= "" then
-			vim.cmd("edit " .. vim.fn.fnameescape(input))
-		end
-	end)
-	os.remove("/tmp/selected")
-end
-
-function delete_file()
-	Terminal:new({
-		cmd = "fd --type f | fzf --preview='cat --color=always {1}' > /tmp/selected",
-		direction = "float",
-		size = 10,
-		on_exit = function()
-			local file = vim.fn.readfile("/tmp/selected")[1]
-			if file then
-				local answer = vim.fn.confirm("Delete" .. file .. "?", "&Yes\n&No", 2)
-				if answer == 1 then
-					os.remove(file)
-				end
-			end
-			os.remove("/tmp/selected")
-		end,
-	}):toggle()
-end
+-- Neotree
+set("n", "<leader>b", ":Neotree toggle<CR>", { desc = "Open/Close Neotree" })
+set("n", "<leader>e", ":Neotree focus<CR>", { desc = "Focus Neotree" })
 
 -- Toggle Term
 set("n", "<C-t>", ":ToggleTerm<CR>", { desc = "Toggle Term" })
@@ -125,11 +65,11 @@ set("n", "gd", ":lua vim.lsp.buf.definition()<CR>", { desc = "Go to Definition" 
 -- Remap keybinds
 set("t", "<Esc>", "<C-\\><C-n>", { desc = "Switch to normal mode in toggle term" })
 
--- FZF
-vim.keymap.set("n", "<leader>e", open_file)
-
--- Create Files With FZF
-vim.keymap.set("n", "<leader>a", create_file)
-
--- Delete Files With FZF
-vim.keymap.set("n", "<C-d>", delete_file)
+-- -- FZF
+-- vim.keymap.set("n", "<leader>e", open_file)
+--
+-- -- Create Files With FZF
+-- vim.keymap.set("n", "<leader>a", create_file)
+--
+-- -- Delete Files With FZF
+-- vim.keymap.set("n", "<C-d>", delete_file)

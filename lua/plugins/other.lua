@@ -5,6 +5,8 @@ return {
 		opts = {},
 	},
 
+	{ dir = "/home/nothing/My Files/lua/neovim-plugins/trii.nvim", opts = {} },
+
 	-- Toggle Term
 	{
 		"akinsho/toggleterm.nvim",

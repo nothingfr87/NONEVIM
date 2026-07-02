@@ -1,22 +1,26 @@
 -- Options
-require("options")
+require("config.options")
 
 -- Basic setup
-require("setup")
+require("config.setup")
 
 -- Plugin manager
 require("config.lazy")
 
--- UI 
-require("bufferline")
-require("statusline")
+-- UI
+-- require("ui.bufferline")
+-- require("ui.statusline")
+
+-- Functions
+require("config.functions")
 
 -- Keymaps
-require("mappings")
+require("config.mappings")
 
 -- Theme
-vim.cmd("colorscheme catppuccin-mocha")
+local function transparent()
+	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+end
 
--- function transparent()
--- 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- end
+vim.cmd("colorscheme catppuccin-mocha")
+-- transparent()

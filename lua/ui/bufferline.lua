@@ -82,6 +82,9 @@ function _G.buffer_tabline()
 			if name == "" then
 				name = "[No Name]"
 			end
+			if vim.bo[buf].modified then
+				name = name .. " [+]"
+			end
 			local tab_hl, file_hl
 			if buf == current then
 				tab_hl = "%#TabLineSel#"
