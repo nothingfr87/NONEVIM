@@ -146,6 +146,8 @@ return {
 				c = { "clang-format" },
 				html = { "prettier" },
 				css = { "prettier" },
+				jsonc = { "prettier" },
+				json = { "prettier" },
 				javascript = { "prettier" },
 			},
 

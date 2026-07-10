@@ -36,7 +36,6 @@ g.live_server = {
 	browser = false,
 }
 g.mapleader = " "
-
 cmd("cnoreabbrev q q!")
 cmd("cnoreabbrev qa qall!")
 cmd("cnoreabbrev w w!")

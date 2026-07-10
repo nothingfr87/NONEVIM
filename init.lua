@@ -23,4 +23,4 @@ local function transparent()
 end
 
 vim.cmd("colorscheme catppuccin-mocha")
--- transparent()
+transparent()
