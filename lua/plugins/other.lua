@@ -1,10 +1,4 @@
 return {
-	-- TODO Highlight
-	{
-		"nothingfr87/todo_hl.nvim",
-		opts = {},
-	},
-
 	-- Toggle Term
 	{
 		"akinsho/toggleterm.nvim",
@@ -42,6 +36,9 @@ return {
 	-- Cord
 	{
 		"vyfor/cord.nvim",
+		opts = {
+			theme = "catppuccin",
+		},
 	},
 
 	-- Live Server
