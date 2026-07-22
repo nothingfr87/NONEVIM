@@ -4,7 +4,7 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local servers = { "html", "cssls", "ts_ls", "lua_ls", "pyright", "clangd", "emmet_ls" }
+			local servers = { "html", "cssls", "ts_ls", "lua_ls", "pyright", "clangd", "rust_analyzer", "emmet_ls" }
 
 			for _, server in ipairs(servers) do
 				vim.lsp.config(server, { capabilities = capabilities })
@@ -46,6 +46,7 @@ return {
 		},
 		config = function()
 			local cmp = require("cmp")
+
 			cmp.setup({
 				formatting = {
 					fields = { "kind", "abbr", "menu" },
@@ -54,10 +55,28 @@ return {
 							Text = "󰉿",
 							Method = "󰆧",
 							Function = "󰊕",
+							Constructor = "",
+							Field = "󰜢",
 							Variable = "",
-							File = "󰈙",
-							Folder = "󰉋",
+							Property = "󰖷",
 							Class = "󰠱",
+							Interface = "",
+							Struct = "󰙅",
+							Module = "󰆧",
+							Unit = "󰑭",
+							Value = "󰎠",
+							Enum = "󰦨",
+							EnumMember = "󰦨",
+							Keyword = "󰌋",
+							Constant = "󰏿",
+							Snippet = "",
+							Color = "󰏘",
+							File = "󰈙",
+							Reference = "󰈇",
+							Folder = "󰉋",
+							Event = "",
+							Operator = "󰆕",
+							TypeParameter = "󰊄",
 						}
 						item.menu = ""
 						item.kind = " " .. (icons[item.kind] or "") .. " "
@@ -65,16 +84,18 @@ return {
 					end,
 				},
 				window = {
-					completion = cmp.config.window.bordered({
+					completion = {
 						max_width = 20,
 						max_height = 8,
-						winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:CmpSel,Search:None",
 						border = "rounded",
-					}),
-					documentation = cmp.config.window.bordered({
 						winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:CmpSel,Search:None",
+					},
+					documentation = {
+						max_width = 20,
+						max_height = 8,
 						border = "rounded",
-					}),
+						winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:CmpSel,Search:None",
+					},
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -124,6 +145,7 @@ return {
 				"html",
 				"css",
 				"javascript",
+				"asm",
 				"markdown",
 				"markdown_inline",
 				"latex",
@@ -144,6 +166,7 @@ return {
 				python = { "autopep8" },
 				cpp = { "clang-format" },
 				c = { "clang-format" },
+				rust = { "rustfmt" },
 				html = { "prettier" },
 				css = { "prettier" },
 				jsonc = { "prettier" },

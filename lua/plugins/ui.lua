@@ -5,6 +5,32 @@ return {
 		name = "catppuccin",
 		lazy = false,
 		priority = 1000,
+		opts = {
+			auto_integrations = true,
+			custom_highlights = function(colors)
+				return {
+					Normal = { bg = "#181825" },
+					NormalNC = { bg = "#181825" },
+					NeoTreeNormal = { bg = "#11111b" },
+					NeoTreeNormalNC = { bg = "#11111b" },
+				}
+			end,
+		},
+	},
+
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			auto_integrations = true,
+		},
+	},
+
+	-- Zen Mode
+	{
+		"folke/zen-mode.nvim",
 		opts = {},
 	},
 

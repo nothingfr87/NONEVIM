@@ -8,6 +8,9 @@ set("n", "<leader>e", ":Neotree focus<CR>", { desc = "Focus Neotree" })
 -- Toggle Term
 set("n", "<C-t>", ":ToggleTerm<CR>", { desc = "Toggle Term" })
 
+-- Zen Mode
+set("n", "<leader>z", ":ZenMode<CR>", { desc = "Toggle Zen Mode" })
+
 -- Render Markdown
 set("n", "<leader>md", ":RenderMarkdown toggle<CR>", { desc = "Toggle Render Markdown" })
 
