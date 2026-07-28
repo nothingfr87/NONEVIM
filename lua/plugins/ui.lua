@@ -3,18 +3,21 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		lazy = false,
 		priority = 1000,
+		lazy = false,
 		opts = {
-			auto_integrations = true,
-			custom_highlights = function(colors)
-				return {
-					Normal = { bg = "#181825" },
-					NormalNC = { bg = "#181825" },
-					NeoTreeNormal = { bg = "#11111b" },
-					NeoTreeNormalNC = { bg = "#11111b" },
-				}
-			end,
+			flavour = "mocha",
+
+			color_overrides = {
+				mocha = {
+					base = "#181825",
+					mantle = "#141420",
+					crust = "#101018",
+					surface0 = "#2a2a3c",
+					surface1 = "#34344a",
+					surface2 = "#404058",
+				},
+			},
 		},
 	},
 
@@ -25,6 +28,23 @@ return {
 		priority = 1000,
 		opts = {
 			auto_integrations = true,
+		},
+	},
+
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			style = "night",
+			auto_integrations = true,
+			on_highlights = function(hl, c)
+				hl.Normal = { bg = "#16161e" }
+				hl.NormalNC = { bg = "#16161e" }
+
+				hl.NeoTreeNormal = { bg = "#11121a" }
+				hl.NeoTreeNormalNC = { bg = "#11121a" }
+			end,
 		},
 	},
 

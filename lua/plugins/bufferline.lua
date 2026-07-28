@@ -11,6 +11,9 @@ return {
 					delay = 200,
 					reveal = { "close" },
 				},
+				highlights = {
+					background = { bg = "none" },
+				},
 				custom_areas = {
 					right = function()
 						local result = {}
