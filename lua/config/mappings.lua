@@ -19,6 +19,14 @@ set("n", "<Tab>", ":bnext<CR>", { desc = "Cycle Through Tabs" })
 set("n", "<S-Tab>", ":bprev<CR>", { desc = "Cycle Through Previuos Tabs" })
 set("n", "<leader>w", ":bdelete<CR>", { desc = "Delete Current Tab" })
 
+-- Telescope
+set("n", "<leader>f", ":Telescope find_files<CR>", { desc = "Open Telescope" })
+set("n", "<leader>g", ":Telescope live_grep<CR>", { desc = "Open Telescope Live Grep" })
+set("n", "<leader>d", ":Telescope diagnostics<CR>", { desc = "Open Telescope LSP Diagnositcs" })
+
+-- LSP Diagnositcs
+set("n", "<leader>s", vim.diagnostic.open_float, { desc = "Open Line LSP Diagnositcs" })
+
 -- Git signs
 set("n", "<leader>gw", ":Gitsigns toggle_linehl<CR>", { desc = "Toggle Git Line Diff" })
 set("n", "<leader>gd", ":Gitsigns toggle_deleted<CR>", { desc = "Toggle Git Line Deleted" })
@@ -67,12 +75,3 @@ set("n", "gd", ":lua vim.lsp.buf.definition()<CR>", { desc = "Go to Definition" 
 
 -- Remap keybinds
 set("t", "<Esc>", "<C-\\><C-n>", { desc = "Switch to normal mode in toggle term" })
-
--- -- FZF
--- vim.keymap.set("n", "<leader>e", open_file)
---
--- -- Create Files With FZF
--- vim.keymap.set("n", "<leader>a", create_file)
---
--- -- Delete Files With FZF
--- vim.keymap.set("n", "<C-d>", delete_file)

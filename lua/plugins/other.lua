@@ -7,6 +7,15 @@ return {
 		opts = {},
 	},
 
+	-- Telescope
+	{
+		"nvim-telescope/telescope.nvim",
+		version = "*",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+	},
+
 	-- Auto Pair
 	{
 		"windwp/nvim-autopairs",
