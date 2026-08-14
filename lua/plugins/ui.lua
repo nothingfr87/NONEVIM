@@ -38,7 +38,7 @@ return {
 		opts = {
 			style = "night",
 			auto_integrations = true,
-			on_highlights = function(hl, c)
+			on_highlights = function(hl)
 				hl.Normal = { bg = "#16161e" }
 				hl.NormalNC = { bg = "#16161e" }
 

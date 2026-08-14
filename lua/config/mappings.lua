@@ -11,6 +11,9 @@ set("n", "<C-t>", ":ToggleTerm<CR>", { desc = "Toggle Term" })
 -- Zen Mode
 set("n", "<leader>z", ":ZenMode<CR>", { desc = "Toggle Zen Mode" })
 
+-- Code Runner
+set("n", "<leader>t", ":RunCode<CR>", { noremap = true, silent = false })
+
 -- Render Markdown
 set("n", "<leader>md", ":RenderMarkdown toggle<CR>", { desc = "Toggle Render Markdown" })
 

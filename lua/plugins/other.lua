@@ -16,6 +16,18 @@ return {
 		},
 	},
 
+	-- Code Runner
+	{
+		"crag666/code_runner.nvim",
+		opts = {
+			filetype = {
+				python = "python3 -u",
+				c = "cd $dir && gcc $fileName -o /tmp/$fileNameWithoutExt && /tmp/$fileNameWithoutExt",
+				cpp = "cd $dir && g++ $fileName -o /tmp/$fileNameWithoutExt && /tmp/$fileNameWithoutExt",
+			},
+		},
+	},
+
 	-- Auto Pair
 	{
 		"windwp/nvim-autopairs",

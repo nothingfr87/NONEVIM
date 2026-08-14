@@ -20,8 +20,11 @@ require("config.mappings")
 -- Theme
 local transparent = function()
 	vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+	vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
+	vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "NONE" })
+	vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "NONE" })
 	vim.api.nvim_set_hl(0, "BufferLineBackground", { bg = "NONE" })
 end
 
-vim.cmd("colorscheme catppuccin-mocha")
--- transparent()
+vim.cmd("colorscheme catppuccin")
+transparent()
