@@ -4,7 +4,7 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local servers = { "html", "cssls", "ts_ls", "lua_ls", "pyright", "clangd", "rust_analyzer", "emmet_ls" }
+			local servers = { "lua_ls", "clangd", "rust_analyzer", "zls" }
 
 			for _, server in ipairs(servers) do
 				vim.lsp.config(server, { capabilities = capabilities })
@@ -26,6 +26,13 @@ return {
 						},
 					},
 				},
+			})
+
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				pattern = "*.zig",
+				callback = function()
+					vim.lsp.buf.format({ async = false })
+				end,
 			})
 
 			vim.lsp.enable(servers)
@@ -180,4 +187,13 @@ return {
 			},
 		},
 	},
+
+	-- 	-- Outline
+	-- 	{
+	-- 		"hedyhli/outline.nvim",
+	-- 		config = function()
+	-- 			vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
+	-- 			require("outline").setup({})
+	-- 		end,
+	-- 	},
 }

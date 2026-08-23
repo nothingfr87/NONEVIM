@@ -12,7 +12,8 @@ set("n", "<C-t>", ":ToggleTerm<CR>", { desc = "Toggle Term" })
 set("n", "<leader>z", ":ZenMode<CR>", { desc = "Toggle Zen Mode" })
 
 -- Code Runner
-set("n", "<leader>t", ":RunCode<CR>", { noremap = true, silent = false })
+set("n", "<leader>c", ":!gcc % -o %< && ./%<<CR>", { noremap = true, silent = false })
+set("n", "<leader>r", ":!zig run %<CR>", { noremap = true, silent = false })
 
 -- Render Markdown
 set("n", "<leader>md", ":RenderMarkdown toggle<CR>", { desc = "Toggle Render Markdown" })
@@ -37,9 +38,6 @@ set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Togg
 set("n", "<leader>gh", ":Gitsigns preview_hunk<CR>", { desc = "Preview Git Hunk" })
 set("n", "<leader>gs", git_commit, { desc = "Git Commit" })
 set("n", "<leader>ga", git_add, { desc = "Git Add" })
-
--- Live Server
-set("n", "<leader>r", ":LiveServerToggle<CR>", { desc = "Toggle Live Server" })
 
 -- Global Mappings
 

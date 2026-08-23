@@ -16,36 +16,11 @@ return {
 		},
 	},
 
-	-- Code Runner
-	{
-		"crag666/code_runner.nvim",
-		opts = {
-			filetype = {
-				python = "python3 -u",
-				c = "cd $dir && gcc $fileName -o /tmp/$fileNameWithoutExt && /tmp/$fileNameWithoutExt",
-				cpp = "cd $dir && g++ $fileName -o /tmp/$fileNameWithoutExt && /tmp/$fileNameWithoutExt",
-			},
-		},
-	},
-
 	-- Auto Pair
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = true,
-	},
-
-	-- Auto Close Tag
-	{
-		"windwp/nvim-ts-autotag",
-		event = "VeryLazy",
-		opts = {
-			per_filetype = {
-				["html"] = {
-					enable_close = false,
-				},
-			},
-		},
 	},
 
 	-- Render Markdown
@@ -60,12 +35,6 @@ return {
 		opts = {
 			theme = "catppuccin",
 		},
-	},
-
-	-- Live Server
-	{
-		"https://git.barrettruth.com/barrettruth/live-server.nvim",
-		cmd = { "LiveServerStart", "LiveServerStop", "LiveServerToggle" },
 	},
 
 	-- Git Signs

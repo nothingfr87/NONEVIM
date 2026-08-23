@@ -48,6 +48,14 @@ return {
 		},
 	},
 
+  {
+    "xiyaowong/transparent.nvim",
+  },
+
+	{
+		"AlphaTechnolog/pywal.nvim",
+	},
+
 	-- Zen Mode
 	{
 		"folke/zen-mode.nvim",
