@@ -10,7 +10,7 @@ return {
 
 			color_overrides = {
 				mocha = {
-					base = "#181825",
+					base = "#11111b",
 					mantle = "#141420",
 					crust = "#101018",
 					surface0 = "#2a2a3c",
@@ -48,9 +48,9 @@ return {
 		},
 	},
 
-  {
-    "xiyaowong/transparent.nvim",
-  },
+	{
+		"xiyaowong/transparent.nvim",
+	},
 
 	{
 		"AlphaTechnolog/pywal.nvim",
