@@ -21,41 +21,6 @@ return {
 		},
 	},
 
-	{
-		"rose-pine/neovim",
-		name = "rose-pine",
-		lazy = false,
-		priority = 1000,
-		opts = {
-			auto_integrations = true,
-		},
-	},
-
-	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {
-			style = "night",
-			auto_integrations = true,
-			on_highlights = function(hl)
-				hl.Normal = { bg = "#16161e" }
-				hl.NormalNC = { bg = "#16161e" }
-
-				hl.NeoTreeNormal = { bg = "#11121a" }
-				hl.NeoTreeNormalNC = { bg = "#11121a" }
-			end,
-		},
-	},
-
-	{
-		"xiyaowong/transparent.nvim",
-	},
-
-	{
-		"AlphaTechnolog/pywal.nvim",
-	},
-
 	-- Zen Mode
 	{
 		"folke/zen-mode.nvim",
