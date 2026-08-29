@@ -35,6 +35,6 @@ api.nvim_create_autocmd("ColorScheme", {
 })
 
 -- CMP API Edits
-api.nvim_set_hl(0, "CmpNormal", { bg = "#11111b" })
+api.nvim_set_hl(0, "CmpNormal", { bg = "#1e1e2e" })
 api.nvim_set_hl(0, "CmpBorder", { fg = "#cba6f7", bg = "NONE" })
-api.nvim_set_hl(0, "CmpSel", { fg = "#11111b", bg = "#a6e3a1", bold = true })
+api.nvim_set_hl(0, "CmpSel", { fg = "#1e1e2e", bg = "#a6e3a1", bold = true })

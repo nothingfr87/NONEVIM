@@ -8,7 +8,6 @@ o.tabstop = 2
 o.shiftwidth = 2
 o.signcolumn = "yes"
 o.showtabline = 2
--- o.tabline = "%!v:lua.buffer_tabline()"
 o.showmode = false
 o.expandtab = true
 o.softtabstop = 2

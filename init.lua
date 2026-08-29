@@ -1,21 +1,20 @@
 -- Options
-require("config.options")
+require("options")
 
 -- Basic setup
-require("config.setup")
+require("setup")
 
 -- Plugin manager
 require("config.lazy")
 
 -- UI
--- require("ui.bufferline")
--- require("ui.statusline")
+require("config.ui")
 
--- Functions
-require("config.functions")
+-- LSP 
+require("config.lsp")
 
 -- Keymaps
-require("config.mappings")
+require("mappings")
 
 -- Theme
 _G.transparent = function()

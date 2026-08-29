@@ -1,4 +1,3 @@
-require("config.functions")
 local set = vim.keymap.set
 
 -- Neotree
@@ -12,6 +11,7 @@ set("n", "<C-t>", ":ToggleTerm<CR>", { desc = "Toggle Term" })
 set("n", "<leader>z", ":ZenMode<CR>", { desc = "Toggle Zen Mode" })
 
 -- Code Runner
+set("n", "<leader>m", ":!make", { noremap = true, silent = false })
 set("n", "<leader>c", ":!gcc % -o %< && ./%<<CR>", { noremap = true, silent = false })
 set("n", "<leader>r", ":!zig run %<CR>", { noremap = true, silent = false })
 
@@ -36,8 +36,6 @@ set("n", "<leader>gw", ":Gitsigns toggle_linehl<CR>", { desc = "Toggle Git Line 
 set("n", "<leader>gd", ":Gitsigns toggle_deleted<CR>", { desc = "Toggle Git Line Deleted" })
 set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle Git Line Blame" })
 set("n", "<leader>gh", ":Gitsigns preview_hunk<CR>", { desc = "Preview Git Hunk" })
-set("n", "<leader>gs", git_commit, { desc = "Git Commit" })
-set("n", "<leader>ga", git_add, { desc = "Git Add" })
 
 -- Global Mappings
 
